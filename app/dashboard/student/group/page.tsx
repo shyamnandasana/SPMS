@@ -14,6 +14,7 @@ import { FormWithToast } from "@/components/ui/form-with-toast"
 export default async function StudentGroupPage() {
     const cookieStore = await cookies()
     const token = cookieStore.get("token")?.value
+    //helo
     if (!token) return null
 
     const payload = await verifyJWT(token)
