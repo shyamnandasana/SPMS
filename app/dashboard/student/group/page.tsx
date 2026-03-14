@@ -33,6 +33,8 @@ export default async function StudentGroupPage() {
         }
     })
 
+    console.log("STUDNNT!!!!!! " + student);
+
     if (!student) return <div>Student profile not found. Please contact admin.</div>
 
     return (
