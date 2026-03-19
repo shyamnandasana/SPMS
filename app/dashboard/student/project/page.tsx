@@ -200,49 +200,10 @@ export default async function StudentProjectPage() {
 
                     <Tabs defaultValue="documents" className="w-full">
                         <TabsList className="bg-white/5 border border-cyan-500/20">
-                            <TabsTrigger value="documents">Documents</TabsTrigger>
                             <TabsTrigger value="milestones">Milestones</TabsTrigger>
                         </TabsList>
 
-                        <TabsContent value="documents" className="space-y-4 mt-4">
-                            <Card className="glass-modern border-cyan-500/20">
-                                <CardHeader className="flex flex-row items-center justify-between">
-                                    <CardTitle className="text-lg">Project Documents</CardTitle>
-                                    <UploadDialog userId={payload.sub as string} projectId={project.id} />
-                                </CardHeader>
-                                <CardContent>
-                                    {project.Document.length === 0 ? (
-                                        <p className="text-muted-foreground text-center py-8">No documents uploaded yet.</p>
-                                    ) : (
-                                        <div className="space-y-2">
-                                            {project.Document.map(doc => (
-                                                <div key={doc.id} className="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-cyan-500/10">
-                                                    <div className="flex items-center gap-3">
-                                                        <div className="bg-blue-500/20 p-2 rounded">
-                                                            <FileText className="h-4 w-4 text-blue-400" />
-                                                        </div>
-                                                        <div>
-                                                            <p className="font-medium">{doc.name}</p>
-                                                            <p className="text-xs text-muted-foreground">{format(new Date(doc.uploadedAt), "MMM d, yyyy")}</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex items-center gap-2">
-                                                        <Button variant="ghost" size="sm" asChild>
-                                                            <a href={doc.url} target="_blank" rel="noopener noreferrer">View</a>
-                                                        </Button>
-                                                        <DeleteFileButton
-                                                            userId={payload.sub as string}
-                                                            documentId={doc.id}
-                                                            fileName={doc.name}
-                                                        />
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    )}
-                                </CardContent>
-                            </Card>
-                        </TabsContent>
+                       
 
                         <TabsContent value="milestones" className="space-y-4 mt-4">
                             <Card className="glass-modern border-cyan-500/20">
